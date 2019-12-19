@@ -1,1 +1,0 @@
-Number of filters:  64 ; K-Mer size: 10
