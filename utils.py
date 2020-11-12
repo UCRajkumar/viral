@@ -21,13 +21,16 @@ def read_fasta(filename):
     df['seqs'] = reads
     return df
 
-def assign_labels(df):
+def assign_labels(df, multi=False):
     viral = []
     for i in df.ID:
         if('gi' in i):
             viral.append(1)
+        elif((multi==True) and ('chr' in i)):
+            viral.append(2)
         else:
             viral.append(0)
+    print(df.shape)
     df['viral'] = viral
     return df
 
