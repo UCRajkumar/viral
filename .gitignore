@@ -1,5 +1,6 @@
 train/*
 test/*
 plots/*
+beta_plots/*
 models/*
 __pycache__/*
