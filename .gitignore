@@ -2,5 +2,6 @@ train/*
 test/*
 plots/*
 beta_plots/*
+.ipynb_checkpoints/*
 models/*
 __pycache__/*
