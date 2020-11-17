@@ -47,3 +47,38 @@ def seqs2onehot(seqs):
             continue
         onehotvecs.append(np.array(one_hot_encode(i), dtype='bool'))
     return onehotvecs
+
+# reference: https://www.geeksforgeeks.org/edit-distance-dp-5/
+def editDistDP(str1, str2, m, n): 
+
+    dp = [[0 for x in range(n + 1)] for x in range(m + 1)] 
+  
+    for i in range(m + 1): 
+        for j in range(n + 1): 
+            if i == 0: 
+                dp[i][j] = j    # Min. operations = j 
+            elif j == 0: 
+                dp[i][j] = i    # Min. operations = i 
+  
+            elif str1[i-1] == str2[j-1]: 
+                dp[i][j] = dp[i-1][j-1] 
+            else: 
+                dp[i][j] = 1 + min(dp[i][j-1],        # Insert 
+                                   dp[i-1][j],        # Remove 
+                                   dp[i-1][j-1])    # Replace 
+  
+    return dp[m][n] 
+
+def onehotdecode(arr):
+    str_builder = ''
+    for i in arr:
+        val = np.argmax(i)
+        if(val == 0):
+            str_builder += 'A'
+        elif(val == 1):
+            str_builder += 'C'
+        if(val == 2):
+            str_builder += 'G'
+        if(val == 3):
+            str_builder += 'T'
+    return str_builder
