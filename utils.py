@@ -35,12 +35,12 @@ def assign_labels(df, multi=False):
     return df
 
 # transform a list of reads into a list of one-hot encoded vectors:
-# (A,C,G,N,T) --> (00001, 00010, 00100, 01000, 10000)
+# (A,C,G,T) --> (0001, 0010, 0100, 1000)
 def seqs2onehot(seqs):
     def one_hot_encode(seq):
-        mapping = dict(zip("ACGNT", range(5)))
-        seq = [mapping[i] if i in ['A', 'T', 'C', 'G', 'N'] else mapping['N'] for i in seq]
-        return np.eye(5)[seq]
+        mapping = dict(zip("ACGT", range(4)))
+        seq = [mapping[i] if i in ['A', 'T', 'C', 'G'] else mapping['A'] for i in seq]
+        return np.eye(4)[seq]
     onehotvecs = []
     for i in seqs:
         if(len(i) < 150):
