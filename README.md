@@ -27,7 +27,7 @@ Please contact urajkuma [at] eng.ucsd.edu for data.
 
 Run the following scripts to do openset recognition test:
 ```
-Evaluation.ipynb, vanilla_vae.ipynb, beta_vae_ELBOW.ipynb 
+temporal_vanilla_vae.ipynb, beta_vae.ipynb, sequential_vanilla_vae.ipynb, Evaluation.ipynb
 ```
 
 ## Description of files  <a name="description"></a>
@@ -37,7 +37,8 @@ file name | Description
 --- | ---
 Evaluation.ipynb | Script to plot ROC and calcualate AUC as a metric for comparison.
 beta_vae_ELBOW.ipynb | Script for beta VAE model.
-vanilla_vae.ipynb | Script for vanilla VAE model.
+temporal_vanilla_vae.ipynb | Script for vanilla VAE model.
+sequential_vanilla_vae.ipynb | Script for sequential VAE model.
 data_preprocess.ipynb | Script to visualize reads from viral, bacterial, fungal, and human genomes.
 utils.py | Contains read function, label assignment function, and one-hot encoding function.
 
